@@ -9,20 +9,10 @@ const Tasks: React.FC = (props: any) => {
 
     const [  {showOnlyToday, selectedToDo}, setStateFields] = useOutletContext();
 
-    console.log(showOnlyToday);
-    console.log('------------------------------');
-    console.log(selectedToDo);
-
     const handleChange = (event: any) => {
-       /* console.log(event);
-        const item = tasksList.find(x => x.id === event.target.id);
-
+        const item = toDoList.items.find(x => x.listName === selectedToDo)?.taskArray.find(x => x.id === event.target.id);
         const val = !item?.finished;
-
         item.finished = val;
-
-        console.log( tasksList.find(x => x.id === event.target.id))*/
-
     }
 
 

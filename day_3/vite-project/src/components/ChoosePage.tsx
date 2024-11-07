@@ -12,13 +12,11 @@ const ChoosePage: React.FC = (props: any) => {
     //const [selectedToDo, setSelectedToDo] = useState(toDoList.items[0].listName);
 
     const setShowOnlyTodayFilterClick = () => {
-        console.log(1111)
         const value = showOnlyToday;
         setStateFields({showOnlyToday: !value, selectedToDo: selectedToDo});
     }
 
     const selectedToDoClick = (event) => {
-        console.log(event);
         setStateFields({showOnlyToday: showOnlyToday, selectedToDo: event});
         //setSelectedToDo(event);
     }

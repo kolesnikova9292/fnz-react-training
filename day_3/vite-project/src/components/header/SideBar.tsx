@@ -5,8 +5,6 @@ import {toDoList} from "../tasks/toDoList.ts";
 
 const SideBar: React.FC = (props: any) => {
 
-    console.log(props.showOnlyToday)
-
     const selectToDo = (event) => {
         props.selectedToDoClick(event.target.listName);
     }

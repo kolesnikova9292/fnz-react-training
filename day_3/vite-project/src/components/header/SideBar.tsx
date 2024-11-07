@@ -7,7 +7,7 @@ const SideBar: React.FC = (props: any) => {
 
     console.log(props.showOnlyToday)
 
-    const seectToDo = (event) => {
+    const selectToDo = (event) => {
         props.selectedToDoClick(event.target.listName);
     }
 
@@ -22,7 +22,7 @@ const SideBar: React.FC = (props: any) => {
                   {toDoList.items.map((todo) =>
                       <li key={todo.listName}>
                           <Link to="/" onClick={() => {
-                              seectToDo({
+                              selectToDo({
                                   target: {
                                       listName: todo.listName,
                                   },

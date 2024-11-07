@@ -1,11 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import {useOutletContext} from "react-router-dom";
 import {Task} from "./Task.ts";
 import {toDoList} from "./toDoList.ts";
 
 const Tasks: React.FC = (props: any) => {
 
-    const [showOnlyToday, setShowOnlyToday] = useOutletContext();
+    //const [showOnlyToday, setShowOnlyToday] = useOutletContext();
+
+    const [  {showOnlyToday, selectedToDo}, setStateFields] = useOutletContext();
 
     console.log(showOnlyToday);
 

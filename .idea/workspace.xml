@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba1d947e-726c-41fe-aefd-d5f6adced0df" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/day_3/vite-project/src/components/ChoosePage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day_3/vite-project/src/components/header/SideBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day_3/vite-project/src/components/tasks/Task.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day_3/vite-project/src/components/tasks/Tasks.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day_3/vite-project/src/components/tasks/toDoList.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

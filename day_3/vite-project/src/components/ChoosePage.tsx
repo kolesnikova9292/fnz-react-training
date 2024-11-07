@@ -1,15 +1,15 @@
-import React, {useState} from "react";
-import {Outlet, Route} from "react-router-dom";
-import { PrivateRoute } from "./PrivateRoute";
+import React, {useContext, useState} from "react";
 import SideBar from "./header/SideBar.tsx";
-import {toDoList} from "./tasks/toDoList.ts";
+import Tasks from "./tasks/Tasks.tsx";
+import {MyContext} from "../App.tsx";
+
 
 const ChoosePage: React.FC = (props: any) => {
 
-    const [  {showOnlyToday, selectedToDo}, setStateFields] =
-        useState({showOnlyToday: false, selectedToDo: toDoList.items[0].listName});
+    const myData = useContext(MyContext);
 
-    //const [selectedToDo, setSelectedToDo] = useState(toDoList.items[0].listName);
+    const [{showOnlyToday, selectedToDo}, setStateFields] =
+        useState({showOnlyToday: false, selectedToDo: myData.data.items[0].listName});
 
     const setShowOnlyTodayFilterClick = () => {
         const value = showOnlyToday;
@@ -18,20 +18,20 @@ const ChoosePage: React.FC = (props: any) => {
 
     const selectedToDoClick = (event) => {
         setStateFields({showOnlyToday: showOnlyToday, selectedToDo: event});
-        //setSelectedToDo(event);
     }
 
-  return (
-      <>
-        <SideBar showOnlyToday = {showOnlyToday} setShowOnlyTodayFilterClick = {setShowOnlyTodayFilterClick}
-                 selectedToDo = {selectedToDo}
-                 selectedToDoClick = {selectedToDoClick}
-        />
+    return (
+        <>
 
-        <Outlet context={[{showOnlyToday, selectedToDo}, setStateFields]}/>
+            <SideBar showOnlyToday={showOnlyToday} setShowOnlyTodayFilterClick={setShowOnlyTodayFilterClick}
+                     selectedToDo={selectedToDo}
+                     selectedToDoClick={selectedToDoClick}
+            />
 
-      </>
-  )
+            <Tasks showOnlyToday={showOnlyToday} selectedToDo={selectedToDo}></Tasks>
+
+        </>
+    )
 };
 
 export default ChoosePage

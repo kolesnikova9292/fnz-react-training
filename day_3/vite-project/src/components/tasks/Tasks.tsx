@@ -1,16 +1,13 @@
-import React, {useState} from "react";
-import {useOutletContext} from "react-router-dom";
+import React, {useContext} from "react";
 import {Task} from "./Task.ts";
-import {toDoList} from "./toDoList.ts";
+import {MyContext} from "../../App.tsx";
 
-const Tasks: React.FC = (props: any) => {
+const Tasks: React.FC = ({showOnlyToday, selectedToDo}: any) => {
 
-    //const [showOnlyToday, setShowOnlyToday] = useOutletContext();
-
-    const [  {showOnlyToday, selectedToDo}, setStateFields] = useOutletContext();
+    const myData = useContext(MyContext);
 
     const handleChange = (event: any) => {
-        const item = toDoList.items.find(x => x.listName === selectedToDo)?.taskArray.find(x => x.id === event.target.id);
+        const item = myData.data.items.find(x => x.listName === selectedToDo)?.taskArray.find(x => x.id === event.target.id);
         const val = !item?.finished;
         item.finished = val;
     }
@@ -19,13 +16,11 @@ const Tasks: React.FC = (props: any) => {
     return (
         <div>
             <h1>Tasks</h1>
-
-
             {showOnlyToday ? (
                 <div style={{margin: "80px"}}>
                     <h2>For Today</h2>
                     <ul>
-                        {toDoList.items.find(x => x.listName === selectedToDo)?.taskArray.filter(x => x.status === 'today').map((todo: Task) => (
+                        {myData.data.items.find(x => x.listName === selectedToDo)?.taskArray.filter(x => x.status === 'today').map((todo: Task) => (
                             <li key={todo.id}>
                                 <input
                                     type="checkbox"
@@ -44,13 +39,11 @@ const Tasks: React.FC = (props: any) => {
                     </ul>
                 </div>
             ) : (
-
                 <div>
-
                     <div style={{margin: "80px"}}>
                         <h2>For Today</h2>
                         <ul>
-                            {toDoList.items.find(x => x.listName === selectedToDo)?.taskArray.filter(x => x.status === 'today').map((todo) => (
+                            {myData.data.items.find(x => x.listName === selectedToDo)?.taskArray.filter(x => x.status === 'today').map((todo) => (
                                 <li key={todo.id}>
                                     <input
                                         type="checkbox"
@@ -67,11 +60,10 @@ const Tasks: React.FC = (props: any) => {
                             ))}
                         </ul>
                     </div>
-
                     <div style={{margin: "80px"}}>
                         <h2>In progress</h2>
                         <ul>
-                            {toDoList.items.find(x => x.listName === selectedToDo)?.taskArray.filter(x => x.status === 'in-progress').map((todo) => (
+                            {myData.data.items.find(x => x.listName === selectedToDo)?.taskArray.filter(x => x.status === 'in-progress').map((todo) => (
                                 <li key={todo.id}>
                                     <input
                                         type="checkbox"
@@ -88,11 +80,10 @@ const Tasks: React.FC = (props: any) => {
                             ))}
                         </ul>
                     </div>
-
                     <div style={{margin: "80px"}}>
                         <h2>Backlog</h2>
                         <ul>
-                            {toDoList.items.find(x => x.listName === selectedToDo)?.taskArray.filter(x => x.status === 'backlog').map((todo) => (
+                            {myData.data.items.find(x => x.listName === selectedToDo)?.taskArray.filter(x => x.status === 'backlog').map((todo) => (
                                 <li key={todo.id}>
                                     <input
                                         type="checkbox"
@@ -109,11 +100,8 @@ const Tasks: React.FC = (props: any) => {
                             ))}
                         </ul>
                     </div>
-
                 </div>
             )}
-
-
         </div>
     )
 };

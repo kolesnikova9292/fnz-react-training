@@ -57,7 +57,7 @@ export const toDoList: ToDoList =
                     status: 'in-progress',
                     finished: false
                 }
-                ]
-            }
+            ]
+        }
         ]
     }
